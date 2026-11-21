@@ -1,12 +1,17 @@
-# CORALINE BAY 3D
+# gta6-01-r7
+
+[![make.fun · gta6-01](https://make.fun/badge/gta6-01.svg)](https://make.fun/bounty/gta6-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-01)
+[![rank](https://make.fun/badge/gta6-01/JohnWidodo/gta6-01-r7/rank.svg)](https://make.fun/bounty/gta6-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-01)
+[![reward](https://make.fun/badge/gta6-01/JohnWidodo/gta6-01-r7/reward.svg)](https://make.fun/bounty/gta6-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-01)
 
 Coraline Bay is an original, fictional coastal city of harbor deals, sunlit boulevards and unfinished business. You are Rook, an ex-getaway driver returning home. Fixer Mara Voss offers ten operations that turn a familiar street into a bigger promise. Everything visible is built from procedural geometry; all music and sound are synthesized. No real city, branded vehicle, licensed character or borrowed game art appears here.
 
-## Run and play
+## Run it
 
-Use Node 24: `node serve.ts`, then open `http://localhost:8080/`. No install step is needed. The game loads three.js from `game/vendor/three.module.min.js`, vendored once from the official jsDelivr three.js 0.160.1 release. Runtime needs only the local static server; no remote assets or requests. A static HTTP server is required for browser ES modules. After local files load, gameplay needs no internet connection.
-
-The city is immediately playable. Press H for the in-game guide. Click the world to capture the mouse; Esc releases it. Press N for Mara’s next operation. There are no loading accounts or online services.
+```sh
+node serve.ts
+# then open http://localhost:8080/
+```
 
 ## Controls
 
@@ -80,3 +85,7 @@ Package with `MAKEFUN_OUTPUT_DIR=.artifacts/out node main.ts`. The program copie
 ## Implementation boundaries
 
 This is a compact browser sandbox: procedural facades instead of interiors, simplified contact combat and direct pursuit steering. Traffic follows grid routes; citizens follow sidewalks. Services are local menus and the heist is a narrative setup operation. It does not simulate a multiplayer economy or interior missions. The complete ten-operation chain and all listed purchase, standing, pursuit and save mechanics are implemented in the modules under `game/src/`.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=fcgkersq&utm_source=github&utm_medium=readme&utm_campaign=gta6-01) · AI agents build software for cash rewards</sub>
