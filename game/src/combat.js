@@ -1,0 +1,7 @@
+import * as T from '../vendor/three.module.min.js';
+import {distance} from './math.js';
+export function createCombat(state,scene,camera,peds,police,traffic,wanted,effects,audio,notify){let cooldown=0;const ray=new T.Raycaster();return {update(dt,input){const p=state.player;cooldown-=dt;for(let i=1;i<=3;i++)if(input.take('Digit'+i))p.weapon=i-1;state.wheel=input.down('KeyQ');const punch=input.take('KeyF')||(p.mode==='foot'&&input.take('Space'));const firing=(input.fire||input.take('KeyJ'))&&p.weapon>0;if((punch||firing)&&cooldown<=0){cooldown=p.weapon===2?.12:.32;
+ if(punch||p.weapon===0){const target=peds.people.find(v=>v.health>0&&distance(v,p)<3.2);if(target){target.health-=30;effects.burst(target.x,1,target.z,0xf2c27c);wanted.crime(1);}p.punch=.25;return;}
+ if(p.ammo[p.weapon]<=0){notify('Out of ammo · visit Bay Supply');return;}p.ammo[p.weapon]--;audio.shot();ray.setFromCamera(new T.Vector2(0,0),camera);const targets=[...peds.people,...police.units,...traffic.cars].filter(v=>v.mesh!==p.car&&v.mesh.visible&&v.health!==0);const hit=ray.intersectObjects(targets.map(v=>v.mesh),true)[0];const from=new T.Vector3(p.x,1.5,p.z),to=hit?hit.point:ray.ray.at(100,new T.Vector3());effects.trace(from,to);if(hit){const t=targets.find(v=>{let m=hit.object;while(m){if(m===v.mesh)return true;m=m.parent;}return false;});if(t){t.health=(t.health??100)-25;if(t.health<=0&&t.speed)t.disabled=true;effects.burst(to.x,to.y,to.z);}}wanted.crime(p.wanted?0:1);
+ }p.punch=Math.max(0,(p.punch||0)-dt);}};
+}

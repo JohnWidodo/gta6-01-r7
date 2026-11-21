@@ -1,0 +1,3 @@
+const KEY='coraline-bay-3d-v1';
+export function loadSave(){try{const s=JSON.parse(localStorage.getItem(KEY));if(!s)return null;return {cash:Math.max(0,Number(s.cash)||0),completed:Array.isArray(s.completed)?s.completed.filter(v=>Number.isInteger(v)&&v>=0&&v<10):[],standing:Array.isArray(s.standing)&&s.standing.length===5?s.standing.map(v=>Math.min(100,Math.max(0,Number(v)||0))):[35,35,35,35,35],bestWantedEscaped:Number(s.bestWantedEscaped)||0,engine:!!s.engine,armor:!!s.armor};}catch{return null;}}
+export function saveGame(state){try{localStorage.setItem(KEY,JSON.stringify({cash:state.cash,completed:state.completed,standing:state.standing,bestWantedEscaped:state.bestWantedEscaped,engine:state.player.engine,armor:state.player.armor}));return true;}catch{return false;}}

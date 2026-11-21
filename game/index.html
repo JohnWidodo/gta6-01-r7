@@ -1,19 +1,15 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Block Dodger</title>
-<style>
-  html, body { margin: 0; height: 100%; overflow: hidden; background: #11141b; }
-  #game { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
-  /* Read aloud, never shown: the status line screen readers announce. */
-  #status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-</style>
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CORALINE BAY 3D</title><link rel="stylesheet" href="./style.css"></head>
 <body>
-<canvas id="game" aria-label="Block Dodger: move the paddle left and right to dodge falling blocks and catch coins"></canvas>
-<p id="status" role="status" aria-live="polite"></p>
-<script type="module" src="./src/main.js"></script>
-</body>
-</html>
+<canvas id="game" aria-label="Coraline Bay 3D open world"></canvas><div id="damage"></div>
+<header><div class="brand"><div class="eyebrow">A CITY WITH SOMETHING TO HIDE</div><div class="title">CORALINE <em>BAY</em><span>3D</span></div><div class="location"><b id="district">Palm Row</b><span id="standing"></span></div></div><div class="stats"><div id="stars" aria-label="Wanted stars">☆☆☆☆☆</div><div id="heat"></div><div id="cash"></div><div class="health"><span>HEALTH</span><div class="bar"><i id="healthbar"></i></div><b id="health">100</b></div><div id="ammo"></div></div></header>
+<div id="mission"><div class="missionlabel">MARA VOSS / OPERATIONS <span id="timer"></span></div><h2 id="missionname"></h2><p id="objective"></p><small id="completed"></small></div>
+<div id="toast" role="status"></div><div id="crosshair">+</div><div id="prompt"></div>
+<footer><div class="mapframe"><canvas id="minimap" aria-label="Minimap with player, police and districts"></canvas><div class="mapcaption"><span>CB / STREET MAP</span><b>● LIVE</b></div></div><div class="controls"><span><b>W A S D</b> MOVE / DRIVE</span><span><b>E</b> ENTER / INTERACT <b>SHIFT</b> RUN</span><span><b>1 2 3</b> WEAPONS <b>Q</b> WHEEL <b>F</b> PUNCH</span><span><b>CLICK / J</b> FIRE <b>N</b> NEXT JOB <b>H</b> HELP</span></div><div class="driving"><div class="speedrow"><b id="speed">000</b><span id="speedunit">KM/H</span></div><div class="radioline">♫ <span id="radio"></span></div><small>R STATION &nbsp; M MUTE</small></div></footer>
+<div id="wheel"><div><b>1</b> FISTS</div><div><b>2</b> PISTOL</div><div><b>3</b> SMG</div></div>
+<div id="service"><div class="eyebrow">CORALINE BAY / SERVICES</div><div id="servicebody"></div><small>ESC CLOSE</small></div>
+<div id="help" hidden><h2>Welcome home, Rook.</h2><p>WASD moves you. Shift runs; Space brakes in a car or punches on foot. Click the city to capture your mouse. Move the mouse to look; Esc releases it.</p><p>E enters nearby cars, steals traffic cars, exits your ride, and uses the glowing service rings or job beacons. N begins Mara’s next operation. Get close and press E to finish deliveries.</p><p>1 / 2 / 3 selects fists, pistol or SMG. Hold Q for the wheel. Click or J fires; F punches. CBPD heat rises with crimes. Break line of pursuit and keep your distance to escape. At four stars, roadblocks and a helicopter join the hunt.</p><p>Sunline Customs: G engine, B armor, C clear wanted. Bay Supply: B ammo, G health. Hideout: E saves and heals. K quick saves, L loads. R cycles three synthesized radio stations; M mutes.</p><p>District standing grows with completed operations. High standing lowers local police detection range and garage prices.</p><button id="closehelp">BACK TO THE BAY</button></div>
+<div id="recovery"><div><div class="eyebrow">CORALINE BAY POLICE DEPARTMENT</div><h1>BUSTED</h1><p>Lost $250. Your story keeps going.</p><p>Press Enter to recover at the hideout.</p></div></div>
+<script type="module" src="./main.js"></script>
+</body></html>

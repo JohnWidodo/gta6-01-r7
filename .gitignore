@@ -1,0 +1,5 @@
+.artifacts/
+out1/
+out2/
+node_modules/
+.r7-git/
